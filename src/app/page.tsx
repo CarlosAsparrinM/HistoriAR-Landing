@@ -838,6 +838,15 @@ function Footer() {
         </div>
 
         <div className="flex items-center footer-right" style={{ gap: 16, justifyContent: "flex-end" }}>
+          <Link
+            id="footer-delete-account-link"
+            href="/eliminar-cuenta"
+            style={{ fontSize: "0.8rem", color: "#374151", textDecoration: "none", transition: "color 0.2s" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#F97316")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#374151")}
+          >
+            Eliminar Cuenta
+          </Link>
           <a
             id="footer-github-link"
             href="https://github.com/CarlosAsparrinM/HistoriAR"

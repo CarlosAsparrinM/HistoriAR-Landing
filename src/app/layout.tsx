@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://historiar.asparrin.me"),
   title: "HistoriAR — Explora el Patrimonio Cultural del Perú en Realidad Aumentada",
   description:
     "La primera app Android que hace cobrar vida a los monumentos históricos del Perú mediante Realidad Aumentada. Descarga la APK y empieza a explorar.",
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     "ARCore",
     "app Android",
     "turismo cultural",
+    "educación",
   ],
   authors: [
     { name: "Carlos Asparrín" },
@@ -41,8 +43,26 @@ export const metadata: Metadata = {
     title: "HistoriAR — Realidad Aumentada + Patrimonio Cultural Peruano",
     description:
       "Apunta tu cámara y descubre la historia del Perú en 3D. Tours guiados, quizzes y mapa interactivo.",
+    url: "https://historiar.asparrin.me",
+    siteName: "HistoriAR",
     type: "website",
     locale: "es_PE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HistoriAR — Explora el Patrimonio Cultural del Perú",
+    description: "La primera app Android que hace cobrar vida a los monumentos históricos mediante Realidad Aumentada.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -54,6 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
       <body>
