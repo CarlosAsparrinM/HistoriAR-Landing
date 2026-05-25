@@ -8,18 +8,13 @@ import { useEffect, useState } from "react";
 // 🔗  CONFIGURACIÓN DEL APK
 // =====================================================================
 //
-//  Cuando tengas el archivo APK listo:
-//    1. Copia el archivo APK a la carpeta:  public/HistoriAR.apk
-//    2. Sube los cambios a GitHub (git add . && git commit && git push)
-//    3. Vercel desplegará automáticamente y el APK estará en:
-//       https://tu-dominio.vercel.app/HistoriAR.apk
-//    4. Cambia APK_AVAILABLE a: true  ↓
+//  Configurado con el archivo APK alojado de forma segura en GitHub Releases:
 //
 // =====================================================================
-const APK_DOWNLOAD_URL = "/HistoriAR.apk"; // ruta al archivo en /public
-const APK_AVAILABLE    = false;            // ← cambia a true cuando pongas el APK en /public
+const APK_DOWNLOAD_URL = "https://github.com/CarlosAsparrinM/HistoriAR-Landing/releases/download/v1.0.0/historiar-.v0.8.1.-.beta.apk";
+const APK_AVAILABLE    = true;
 const APK_VERSION      = "0.8.1";
-const APK_BUILD        = "2026.05.10";
+const APK_BUILD        = "2026.05.25";
 
 // ─────────────────────────────────────────
 // Static data
