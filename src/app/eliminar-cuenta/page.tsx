@@ -60,6 +60,16 @@ export default function DeleteAccountPage() {
   // Google button ref
   const googleBtnRef = useRef<HTMLDivElement>(null);
 
+  // ── Google callback ──
+  const handleGoogleResponse = useCallback(
+    (response: { credential: string }) => {
+      const idToken = response.credential;
+      setMethod("google");
+      setPendingAction(() => () => executeGoogleDeletion(idToken));
+    },
+    []
+  );
+
   // ── Load Google Identity Services script ──
   const isGoogleInitialized = useRef(false);
 
@@ -107,16 +117,6 @@ export default function DeleteAccountPage() {
     script.onload = initGoogle;
     document.head.appendChild(script);
   }, [handleGoogleResponse]);
-
-  // ── Google callback ──
-  const handleGoogleResponse = useCallback(
-    (response: { credential: string }) => {
-      const idToken = response.credential;
-      setMethod("google");
-      setPendingAction(() => () => executeGoogleDeletion(idToken));
-    },
-    []
-  );
 
   // ── Credential submit ──
   function handleCredentialSubmit(e: React.FormEvent) {
