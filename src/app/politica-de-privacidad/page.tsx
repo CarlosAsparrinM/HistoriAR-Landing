@@ -323,21 +323,21 @@ export default function PrivacyPolicy() {
                 <span style={{ color: "#F97316" }}>05.</span> Permisos del Dispositivo
               </h2>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }} className="responsive-3col">
-                <div style={{ background: "rgba(255,255,255,0.012)", padding: "20px", borderRadius: 16, border: "1px solid rgba(249,115,22,0.15)", display: "flex", flexDirection: "col", gap: 10 }}>
+                <div style={{ background: "rgba(255,255,255,0.012)", padding: "20px", borderRadius: 16, border: "1px solid rgba(249,115,22,0.15)", display: "flex", flexDirection: "column", gap: 10 }}>
                   <div style={{ fontSize: "1.8rem", color: "#F97316" }}>📍</div>
                   <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8FAFC", margin: 0 }}>Ubicación</h3>
                   <p style={{ fontSize: "0.78rem", color: "#94A3B8", lineHeight: 1.6, margin: 0 }}>
                     Requerido para posicionarte en el mapa y medir distancias a las huacas históricas cercanas.
                   </p>
                 </div>
-                <div style={{ background: "rgba(255,255,255,0.012)", padding: "20px", borderRadius: 16, border: "1px solid rgba(249,115,22,0.15)", display: "flex", flexDirection: "col", gap: 10 }}>
+                <div style={{ background: "rgba(255,255,255,0.012)", padding: "20px", borderRadius: 16, border: "1px solid rgba(249,115,22,0.15)", display: "flex", flexDirection: "column", gap: 10 }}>
                   <div style={{ fontSize: "1.8rem", color: "#F97316" }}>📷</div>
                   <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8FAFC", margin: 0 }}>Cámara (AR)</h3>
                   <p style={{ fontSize: "0.78rem", color: "#94A3B8", lineHeight: 1.6, margin: 0 }}>
                     Indispensable para proyectar los modelos 3D en tu entorno. No graba, guarda ni transmite datos visuales.
                   </p>
                 </div>
-                <div style={{ background: "rgba(255,255,255,0.012)", padding: "20px", borderRadius: 16, border: "1px solid rgba(249,115,22,0.15)", display: "flex", flexDirection: "col", gap: 10 }}>
+                <div style={{ background: "rgba(255,255,255,0.012)", padding: "20px", borderRadius: 16, border: "1px solid rgba(249,115,22,0.15)", display: "flex", flexDirection: "column", gap: 10 }}>
                   <div style={{ fontSize: "1.8rem", color: "#F97316" }}>🌐</div>
                   <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#F8FAFC", margin: 0 }}>Conexión a Internet</h3>
                   <p style={{ fontSize: "0.78rem", color: "#94A3B8", lineHeight: 1.6, margin: 0 }}>
