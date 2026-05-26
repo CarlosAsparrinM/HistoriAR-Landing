@@ -175,7 +175,7 @@ function Navbar({ scrolled }: { scrolled: boolean }) {
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3" style={{ textDecoration: "none" }}>
             <Image
-              src="/logo.png"
+              src="/historiar-logo.png"
               alt="HistoriAR logo"
               width={36}
               height={36}
@@ -823,7 +823,7 @@ function Footer() {
 
         <div className="flex items-center justify-center" style={{ gap: 8 }}>
           <Image
-            src="/logo.png"
+            src="/historiar-logo.png"
             alt="HistoriAR"
             width={22}
             height={22}
