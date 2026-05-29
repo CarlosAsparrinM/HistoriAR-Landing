@@ -11,10 +11,10 @@ import { useEffect, useState } from "react";
 //  Configurado con el archivo APK alojado de forma segura en GitHub Releases:
 //
 // =====================================================================
-const APK_DOWNLOAD_URL = "https://github.com/CarlosAsparrinM/HistoriAR-Landing/releases/download/v1.0.0/historiar-.v0.8.1.-.beta.apk";
+const APK_DOWNLOAD_URL = "https://github.com/CarlosAsparrinM/HistoriAR-Landing/releases/download/v.1.0.3/app-release.apk";
 const APK_AVAILABLE    = true;
-const APK_VERSION      = "0.8.1";
-const APK_BUILD        = "2026.05.25";
+const APK_VERSION      = "1.0.3";
+const APK_BUILD        = "2026.05.29";
 
 // ─────────────────────────────────────────
 // Static data
