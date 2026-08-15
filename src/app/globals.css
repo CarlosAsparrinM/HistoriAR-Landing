@@ -177,7 +177,222 @@ body {
   box-shadow: 0 16px 45px rgba(249, 115, 22, 0.5);
   background: linear-gradient(135deg, #FB923C, #F97316);
 }
-.btn-primary:active { transform: scale(0.97); }
+/* ==============================
+   OFFICIAL GOOGLE PLAY BADGE BUTTON
+   ============================== */
+.btn-google-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  border-radius: 9px;
+  background: #000000;
+  border: 1.5px solid #a6a6a6;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.btn-google-play:hover {
+  transform: translateY(-2px);
+  border-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+.btn-google-play:active {
+  transform: scale(0.98);
+}
+
+.btn-google-play-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1;
+}
+
+.btn-google-play-subtitle {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.btn-google-play-title {
+  font-size: 1.22rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Large variant (Hero, Installation) */
+.btn-google-play-lg {
+  padding: 10px 24px;
+  border-radius: 10px;
+  gap: 14px;
+}
+
+.btn-google-play-lg .btn-google-play-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 3px;
+}
+
+.btn-google-play-lg .btn-google-play-title {
+  font-size: 1.45rem;
+}
+
+/* Compact variant (Navbar) */
+.btn-google-play-compact {
+  padding: 5px 12px;
+  border-radius: 7px;
+  gap: 8px;
+}
+
+.btn-google-play-compact .btn-google-play-subtitle {
+  font-size: 0.48rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1px;
+}
+
+.btn-google-play-compact .btn-google-play-title {
+  font-size: 0.95rem;
+}
+
+.btn-google-play-soon {
+  font-size: 0.68rem;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 2px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+
+/* ==============================
+   3D TRY NOW BUTTON (PROBAR AHORA)
+   ============================== */
+.btn-web-app {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  background: linear-gradient(180deg, #38BDF8 0%, #0EA5E9 55%, #0284C7 100%);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 
+    0 5px 0 #0369A1,
+    0 8px 18px rgba(14, 165, 233, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.btn-web-app:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 
+    0 7px 0 #0369A1,
+    0 12px 24px rgba(14, 165, 233, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.btn-web-app:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 1px 0 #0369A1,
+    0 3px 8px rgba(14, 165, 233, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Inner frame (white rounded stroke from 3D icon) */
+.btn-web-app-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  width: 100%;
+}
+
+.btn-web-app-text {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 2px 4px rgba(2, 132, 199, 0.5);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Large variant (Hero & Installation) */
+.btn-web-app-lg {
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.btn-web-app-lg .btn-web-app-inner {
+  padding: 10px 24px;
+  border-radius: 9px;
+  gap: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.btn-web-app-lg .btn-web-app-text {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+}
+
+/* Compact variant (Navbar) */
+.btn-web-app-compact {
+  border-radius: 9px;
+  padding: 2.5px;
+  box-shadow: 
+    0 3px 0 #0369A1,
+    0 4px 10px rgba(14, 165, 233, 0.35);
+}
+
+.btn-web-app-compact:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 0 #0369A1,
+    0 6px 14px rgba(14, 165, 233, 0.45);
+}
+
+.btn-web-app-compact:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 1px 0 #0369A1,
+    0 2px 4px rgba(14, 165, 233, 0.3);
+}
+
+.btn-web-app-compact .btn-web-app-inner {
+  padding: 4px 12px;
+  border-radius: 6px;
+  gap: 6px;
+  border: 1.2px solid rgba(255, 255, 255, 0.85);
+}
+
+.btn-web-app-compact .btn-web-app-text {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
 
 .btn-disabled {
   pointer-events: none;
@@ -191,6 +406,14 @@ body {
     width: 100%;
     padding: 14px 20px;
     font-size: 0.92rem;
+  }
+  .btn-google-play {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-web-app {
+    width: 100%;
+    justify-content: center;
   }
 }
 

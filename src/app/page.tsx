@@ -4,6 +4,140 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+type Language = "es" | "en";
+
+function browserLanguage(): Language {
+  return navigator.languages.some((language) => language.toLowerCase().startsWith("en")) ? "en" : "es";
+}
+
+const ENGLISH_TEXT: Record<string, string> = {
+  "Descargar aplicación": "Download app",
+  "🤖 Descargar aplicación": "🤖 Download app",
+  "DISPONIBLE EN": "GET IT ON",
+  "Google Play": "Google Play",
+  "PROBAR AHORA": "TRY NOW",
+  "Probar Ahora": "Try Now",
+  "Probar en la Web": "Try on Web",
+  "Descargar aplicación en Google Play": "Download app on Google Play",
+  "Disponible en Google Play · v": "Available on Google Play · v",
+  "Inicio": "Home",
+  "Funcionalidades": "Features",
+  "Capturas": "Screenshots",
+  "Instalación": "Installation",
+  "Privacidad": "Privacy",
+  "Términos": "Terms",
+  "Cerrar menú": "Close menu",
+  "Abrir menú": "Open menu",
+  "Menú de navegación": "Navigation menu",
+  "Realidad Aumentada": "Augmented Reality",
+  "Explora tu Ciudad": "Explore Your City",
+  "Tours Guiados": "Guided Tours",
+  "Quizzes Educativos": "Educational Quizzes",
+  "Apunta tu cámara y coloca modelos 3D hiperrealistas de monumentos en tu entorno real. Rota, escala e interactúa con la historia.": "Point your camera and place hyper-realistic 3D monument models in your real environment. Rotate, scale, and interact with history.",
+  "Descubre restos arqueológicos y monumentos históricos cercanos mediante un mapa interactivo con geolocalización precisa en tiempo real.": "Discover nearby archaeological sites and historical monuments through an interactive map with precise real-time geolocation.",
+  "Sigue rutas temáticas, cronológicas o arquitectónicas únicas, diseñadas por museos y expertos culturales peruanos.": "Follow unique thematic, chronological, or architectural routes designed by Peruvian museums and cultural experts.",
+  "Pon a prueba lo que aprendiste con preguntas interactivas y desafiantes cuestionarios sobre cada monumento.": "Put your learning to the test with interactive questions and challenging quizzes about every monument.",
+  "Monumentos cobran vida en tu entorno real con ARCore": "Monuments come to life in your real environment with ARCore",
+  "Mapa interactivo con monumentos cercanos en tiempo real": "Interactive map with nearby monuments in real time",
+  "Recorridos temáticos activos y paradas disponibles": "Active themed tours and available stops",
+  "Estadísticas de visitas, quizzes e insignias ganadas": "Visit, quiz, and badge statistics",
+  "Configuración": "Settings",
+  "Personaliza notificaciones, precisión y preferencias": "Customize notifications, accuracy, and preferences",
+  "Inicio de Sesión": "Sign In",
+  "Acceso rápido y seguro a tu cuenta HistoriAR": "Quick and secure access to your HistoriAR account",
+  "Crear Cuenta": "Create Account",
+  "Únete gratis a la comunidad HistoriAR": "Join the HistoriAR community for free",
+  "Descarga el Archivo": "Download the File",
+  "Haz clic en el botón de descarga de esta página para obtener el archivo .apk directamente desde nuestro servidor oficial.": "Click this page's download button to get the .apk file directly from our official server.",
+  "Permite la Instalación": "Allow Installation",
+  'Ve a Ajustes → Seguridad en tu Android y habilita "Instalar apps de fuentes desconocidas" para tu navegador.': 'Go to Settings → Security on your Android device and enable "Install unknown apps" for your browser.',
+  "Instala y Explora": "Install and Explore",
+  "Ejecuta el archivo descargado, presiona Instalar y ¡comienza a descubrir el patrimonio cultural peruano con AR!": "Open the downloaded file, tap Install, and start discovering Peru's cultural heritage with AR!",
+  "App Android · v": "Android app · v",
+  "Explora el patrimonio arqueológico de Lima en": "Explore Lima's archaeological heritage in",
+  "Descubre el pasado. Vívelo en el presente.": "Discover the past. Experience it in the present.",
+  "Una innovadora aplicación móvil diseñada para transformar tu entorno y": "An innovative mobile application designed to transform your surroundings and",
+  "hacer cobrar vida a la historia de las huacas de Lima directamente desde": "bring the history of Lima's huacas to life directly from",
+  "tu smartphone, utilizando tecnología AR de última generación, modelos 3D": "your smartphone, using cutting-edge AR technology, 3D models",
+  "y dinámicas interactivas.": "and interactive experiences.",
+  "APK disponible · v": "Available on Google Play · v",
+  "🔒 Recomendado Android 11.0+ (8 GB RAM) · Requiere soporte ARCore": "🔒 Android 11.0+ recommended (8 GB RAM) · ARCore support required",
+  "¿Qué es HistoriAR?": "What is HistoriAR?",
+  "“Más que una app — es una": "“More than an app — it is a",
+  "ventana interactiva": "interactive window",
+  "al pasado.”": "to the past.”",
+  "HistoriAR transforma la manera en que te conectas con el patrimonio cultural.": "HistoriAR transforms the way you connect with cultural heritage.",
+  "A través de la cámara de tu celular, verás monumentos históricos cobrar vida en": "Through your phone's camera, you will see historical monuments come to life as",
+  "modelos 3D interactivos, podrás seguir rutas temáticas diseñadas por expertos y": "interactive 3D models, follow themed routes designed by experts, and",
+  "poner a prueba tus conocimientos sobre la marcha.": "test your knowledge along the way.",
+  "Monumentos": "Monuments",
+  "Tours disponibles": "Tours available",
+  "Tecnología AR": "AR technology",
+  "Todo lo que necesitas para explorar la historia": "Everything you need to explore history",
+  "Capturas reales de la app": "Real app screenshots",
+  "Descubre HistoriAR por dentro": "Discover HistoriAR from the inside",
+  "Pantallas tomadas directamente de la aplicación en funcionamiento": "Screens captured directly from the running application",
+  "Desliza para ver más": "Swipe to see more",
+  "¿Cómo instalar HistoriAR?": "How do I install HistoriAR?",
+  "Al estar en fase de lanzamiento, la app se distribuye mediante un archivo APK seguro.": "As the app is in its launch phase, it is distributed through a secure APK file.",
+  "Solo sigue estos 3 pasos:": "Just follow these 3 steps:",
+  "Descarga 100% segura": "100% secure download",
+  "El archivo APK se sirve directamente desde nuestro servidor. Android mostrará una advertencia": "The APK file is served directly from our server. Android will show a",
+  "estándar para apps fuera de Play Store — es normal en apps beta. Puedes verificar el código": "standard warning for apps outside the Play Store — this is normal for beta apps. You can verify the source",
+  "fuente en nuestro repositorio de GitHub.": "code in our GitHub repository.",
+  "Versión": "Version",
+  "Disponibilidad de plataformas": "Platform availability",
+  "✅ Disponible": "✅ Available",
+  "🔜 Próximamente": "🔜 Coming soon",
+  "🟠 Especificaciones Mínimas": "🟠 Minimum specifications",
+  "🟢 Recomendado (Fluidez Perfecta)": "🟢 Recommended (Smooth performance)",
+  "Procesador:": "Processor:",
+  "Requisitos:": "Requirements:",
+  "Soporte de Google ARCore (indispensable)": "Google ARCore support (required)",
+  "Soporte ARCore obligatorio y Red 5G": "ARCore support required and 5G network",
+  "Soporte ARKit": "ARKit support",
+  "Soporte ARKit (LiDAR opcional)": "ARKit support (LiDAR optional)",
+  "© 2026 HistoriAR — Reviviendo el patrimonio cultural con tecnología.": "© 2026 HistoriAR — Bringing cultural heritage back to life with technology.",
+  "Creado con ❤️ en Perú por": "Created with ❤️ in Peru by",
+  "y": "and",
+  "Eliminar Cuenta": "Delete Account",
+  "Una innovadora aplicación móvil diseñada para transformar tu entorno y hacer cobrar vida a la historia de las huacas de Lima directamente desde tu smartphone, utilizando tecnología AR de última generación, modelos 3D y dinámicas interactivas.": "An innovative mobile app designed to transform your surroundings and bring the history of Lima's huacas to life directly from your smartphone, using cutting-edge AR technology, 3D models, and interactive experiences.",
+  "HistoriAR transforma la manera en que te conectas con el patrimonio cultural. A través de la cámara de tu celular, verás monumentos históricos cobrar vida en modelos 3D interactivos, podrás seguir rutas temáticas diseñadas por expertos y poner a prueba tus conocimientos sobre la marcha.": "HistoriAR transforms the way you connect with cultural heritage. Through your phone's camera, you will see historical monuments come to life as interactive 3D models, follow themed routes designed by experts, and test your knowledge along the way.",
+  "Al estar en fase de lanzamiento, la app se distribuye mediante un archivo APK seguro. Solo sigue estos 3 pasos:": "The app is in its launch phase and is distributed through a secure APK file. Just follow these 3 steps:",
+  "El archivo APK se sirve directamente desde nuestro servidor. Android mostrará una advertencia estándar para apps fuera de Play Store — es normal en apps beta. Puedes verificar el código fuente en nuestro repositorio de GitHub.": "The APK file is served directly from our server. Android will show a standard warning for apps outside the Play Store — this is normal for beta apps. You can verify the source code in our GitHub repository.",
+  "Versión 1.0.3 · Build 2026.05.29 · Recomendado Android 11.0+ (8 GB RAM) · ARCore requerido": "Version 1.0.3 · Build 2026.05.29 · Android 11.0+ recommended (8 GB RAM) · ARCore required",
+  "Especificaciones Mínimas": "Minimum specifications",
+  "Recomendado (Fluidez Perfecta)": "Recommended (Smooth performance)",
+  "S.O.:": "OS:",
+  "Helio G99 / Snapdragon 680 o 695": "Helio G99 / Snapdragon 680 or 695",
+  "Android 11.0+ (ej. Moto Edge 60)": "Android 11.0+ (e.g. Moto Edge 60)",
+  "Apple A12 Bionic (iPhone XR/XS/SE 2da Gen)": "Apple A12 Bionic (iPhone XR/XS/2nd Gen SE)",
+  "Apple A14 Bionic (iPhone 12 en adelante)": "Apple A14 Bionic (iPhone 12 and later)",
+  "4 GB a 6 GB": "4 GB to 6 GB",
+};
+
+const ORIGINAL_TEXT = new WeakMap<Text, string>();
+
+function translatePage(language: Language) {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes: Text[] = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode as Text);
+
+  textNodes.forEach((node) => {
+    const original = ORIGINAL_TEXT.get(node) ?? node.nodeValue ?? "";
+    ORIGINAL_TEXT.set(node, original);
+    const trimmed = original.trim();
+    const translated = language === "en" ? ENGLISH_TEXT[trimmed] : trimmed;
+    if (!translated || translated === trimmed) {
+      node.nodeValue = language === "es" ? original : original;
+      return;
+    }
+    const leading = original.match(/^\s*/)?.[0] ?? "";
+    const trailing = original.match(/\s*$/)?.[0] ?? "";
+    node.nodeValue = `${leading}${translated}${trailing}`;
+  });
+}
+
 // =====================================================================
 // 🔗  CONFIGURACIÓN DEL APK
 // =====================================================================
@@ -11,7 +145,8 @@ import { useEffect, useState } from "react";
 //  Configurado con el archivo APK alojado de forma segura en GitHub Releases:
 //
 // =====================================================================
-const APK_DOWNLOAD_URL = "https://github.com/CarlosAsparrinM/HistoriAR-Landing/releases/download/v.1.0.3/app-release.apk";
+const APK_DOWNLOAD_URL = "https://play.google.com/store/apps/details?id=com.historiar.app";
+const WEB_APP_URL      = "https://historiar-web.vercel.app/";
 const APK_AVAILABLE    = true;
 const APK_VERSION      = "1.0.3";
 const APK_BUILD        = "2026.05.29";
@@ -82,33 +217,144 @@ const NAV_LINKS = [
   { href: "/terminos-y-condiciones",  label: "Términos" },
 ];
 
+function GooglePlayIcon({ size = 26 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      style={{ flexShrink: 0 }}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="gpBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00E5FF" />
+          <stop offset="100%" stopColor="#0072FF" />
+        </linearGradient>
+        <linearGradient id="gpRed" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FF3A44" />
+          <stop offset="100%" stopColor="#D50000" />
+        </linearGradient>
+        <linearGradient id="gpYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFDE00" />
+          <stop offset="100%" stopColor="#FF9100" />
+        </linearGradient>
+        <linearGradient id="gpGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00F076" />
+          <stop offset="100%" stopColor="#00A843" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M3.609 1.814C3.23 2.222 3 2.825 3 3.619v16.762c0 .794.23 1.397.609 1.805l.095.087 9.49-9.49v-.224L3.704 3.091l-.095.095-.001-.001c.001-.46.001-.912 0-1.372z"
+        fill="url(#gpBlue)"
+      />
+      <path
+        d="M16.353 15.918l-3.159-3.159v-.224l3.16-3.159.071.04 3.743 2.128c1.069.607 1.069 1.603 0 2.212l-3.744 2.128-.071.034z"
+        fill="url(#gpRed)"
+      />
+      <path
+        d="M13.265 12.535L3.609 22.186c.356.377.948.423 1.618.043l11.126-6.319-3.088-3.375z"
+        fill="url(#gpYellow)"
+      />
+      <path
+        d="M13.265 12.037l3.088-3.376L5.227 2.342C4.557 1.962 3.965 2.008 3.609 2.385l9.656 9.652z"
+        fill="url(#gpGreen)"
+      />
+    </svg>
+  );
+}
+
 // ─────────────────────────────────────────
-// Shared download button
+// Shared download button (Google Play badge)
 // ─────────────────────────────────────────
-function DownloadBtn({ id, large = false }: { id: string; large?: boolean }) {
+function DownloadBtn({
+  id,
+  large = false,
+  compact = false,
+}: {
+  id: string;
+  large?: boolean;
+  compact?: boolean;
+}) {
   return (
     <a
       id={id}
       href={APK_AVAILABLE ? APK_DOWNLOAD_URL : "#como-instalar"}
-      className={`btn-primary${APK_AVAILABLE ? "" : " btn-disabled"}`}
-      style={{ fontSize: large ? "1.05rem" : "0.95rem" }}
-      {...(APK_AVAILABLE ? { download: "HistoriAR.apk" } : {})}
+      className={`btn-google-play ${large ? "btn-google-play-lg" : ""} ${compact ? "btn-google-play-compact" : ""} ${APK_AVAILABLE ? "" : "btn-disabled"}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Descargar aplicación en Google Play"
     >
-      <span style={{ fontSize: large ? "1.4rem" : "1.15rem" }}>🤖</span>
-      <span>Descargar para Android (.APK)</span>
+      <GooglePlayIcon size={large ? 30 : compact ? 18 : 24} />
+      <div className="btn-google-play-text">
+        <span className="btn-google-play-subtitle">DISPONIBLE EN</span>
+        <span className="btn-google-play-title">Google Play</span>
+      </div>
       {!APK_AVAILABLE && (
-        <span
-          style={{
-            fontSize: "0.68rem",
-            background: "rgba(255,255,255,0.14)",
-            padding: "2px 10px",
-            borderRadius: 999,
-            flexShrink: 0,
-          }}
-        >
+        <span className="btn-google-play-soon">
           Próximamente
         </span>
       )}
+    </a>
+  );
+}
+
+function CursorClickIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ flexShrink: 0, transform: "rotate(-8deg)" }}
+      aria-hidden="true"
+    >
+      {/* Click spark lines */}
+      <path d="M7 4L4 2" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
+      <path d="M3 8L1 8" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
+      <path d="M5 12L2 14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
+      {/* 3D Arrow Cursor */}
+      <path
+        d="M8 5L21 14.5L14.5 16L12 23L8 5Z"
+        fill="#FFFFFF"
+        stroke="#0369A1"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 7.5L18.5 14L14 15.2L12 20.5L9.5 7.5Z"
+        fill="#F0F9FF"
+      />
+    </svg>
+  );
+}
+
+// ─────────────────────────────────────────
+// 3D Web App button (PROBAR AHORA)
+// ─────────────────────────────────────────
+function WebAppBtn({
+  id,
+  large = false,
+  compact = false,
+}: {
+  id: string;
+  large?: boolean;
+  compact?: boolean;
+}) {
+  return (
+    <a
+      id={id}
+      href={WEB_APP_URL}
+      className={`btn-web-app ${large ? "btn-web-app-lg" : ""} ${compact ? "btn-web-app-compact" : ""}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Probar HistoriAR en la Web"
+    >
+      <div className="btn-web-app-inner">
+        <span className="btn-web-app-text">PROBAR AHORA</span>
+        <CursorClickIcon size={large ? 24 : compact ? 14 : 18} />
+      </div>
     </a>
   );
 }
@@ -149,7 +395,13 @@ function PhoneMockup({
 // ─────────────────────────────────────────
 // Navbar
 // ─────────────────────────────────────────
-function Navbar({ scrolled }: { scrolled: boolean }) {
+function LanguageToggle({ language, onChange }: { language: Language; onChange: (language: Language) => void }) {
+  return <div aria-label="Language selector" style={{ display: "inline-flex", padding: 3, gap: 2, border: "1px solid rgba(255,255,255,0.14)", borderRadius: 999, background: "rgba(15,23,42,0.58)" }}>
+    {(["es", "en"] as const).map((option) => <button key={option} type="button" aria-pressed={language === option} onClick={() => onChange(option)} style={{ border: 0, borderRadius: 999, padding: "5px 8px", background: language === option ? "#F97316" : "transparent", color: language === option ? "#fff" : "#CBD5E1", cursor: "pointer", fontSize: "0.7rem", fontWeight: 800, lineHeight: 1 }}>{option.toUpperCase()}</button>)}
+  </div>;
+}
+
+function Navbar({ scrolled, language, onLanguageChange }: { scrolled: boolean; language: Language; onLanguageChange: (language: Language) => void }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -202,22 +454,12 @@ function Navbar({ scrolled }: { scrolled: boolean }) {
             })}
           </div>
 
+          <div className="desktop-nav"><LanguageToggle language={language} onChange={onLanguageChange} /></div>
+
           {/* Desktop CTA */}
-          <div className="desktop-cta">
-            <a
-              id="navbar-download-btn"
-              href={APK_AVAILABLE ? APK_DOWNLOAD_URL : "#como-instalar"}
-              className={`btn-primary${APK_AVAILABLE ? "" : " btn-disabled"}`}
-              style={{ fontSize: "0.82rem", padding: "10px 22px" }}
-              {...(APK_AVAILABLE ? { download: "HistoriAR.apk" } : {})}
-            >
-              🤖 Descargar APK
-              {!APK_AVAILABLE && (
-                <span style={{ fontSize: "0.66rem", background: "rgba(255,255,255,0.14)", padding: "1px 8px", borderRadius: 999 }}>
-                  Pronto
-                </span>
-              )}
-            </a>
+          <div className="desktop-cta flex items-center" style={{ gap: 8 }}>
+            <WebAppBtn id="navbar-web-app-btn" compact />
+            <DownloadBtn id="navbar-download-btn" compact />
           </div>
 
           {/* Hamburger */}
@@ -236,6 +478,7 @@ function Navbar({ scrolled }: { scrolled: boolean }) {
       {/* Mobile full-screen menu */}
       {open && (
         <div className="mobile-nav" id="mobile-nav-overlay" role="dialog" aria-label="Menú de navegación">
+          <LanguageToggle language={language} onChange={onLanguageChange} />
           {NAV_LINKS.map((l) => {
             const isLocalRoute = l.href.startsWith("/");
             return isLocalRoute ? (
@@ -248,8 +491,9 @@ function Navbar({ scrolled }: { scrolled: boolean }) {
               </a>
             );
           })}
-          <div style={{ width: "100%", maxWidth: 300, padding: "0 24px" }}>
+          <div style={{ width: "100%", maxWidth: 320, padding: "0 20px", display: "flex", flexDirection: "column", gap: 10 }}>
             <DownloadBtn id="mobile-download-btn" />
+            <WebAppBtn id="mobile-web-app-btn" />
           </div>
         </div>
       )}
@@ -371,7 +615,10 @@ function HeroSection() {
               </div>
             )}
 
-            <DownloadBtn id="hero-download-btn" large />
+            <div className="flex flex-wrap items-center" style={{ gap: 12 }}>
+              <DownloadBtn id="hero-download-btn" large />
+              <WebAppBtn id="hero-web-app-btn" large />
+            </div>
 
             <p style={{ fontSize: "0.76rem", color: "#4B5563", display: "flex", alignItems: "center", gap: 6, margin: 0, flexWrap: "wrap" }}>
               🔒 Recomendado Android 11.0+ (8 GB RAM) · Requiere soporte ARCore
@@ -676,9 +923,12 @@ function InstallSection() {
         </div>
 
         {/* Repeat CTA */}
-        <div style={{ textAlign: "center", marginTop: 44, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-          <DownloadBtn id="install-download-btn" large />
-          <p style={{ fontSize: "0.75rem", color: "#374151", margin: 0 }}>
+        <div style={{ textAlign: "center", marginTop: 44, display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+          <div className="flex flex-wrap items-center justify-center" style={{ gap: 12 }}>
+            <DownloadBtn id="install-download-btn" large />
+            <WebAppBtn id="install-web-app-btn" large />
+          </div>
+          <p style={{ fontSize: "0.75rem", color: "#64748B", margin: 0 }}>
             Versión {APK_VERSION} · Build {APK_BUILD} · Recomendado Android 11.0+ (8 GB RAM) · ARCore requerido
           </p>
         </div>
@@ -869,6 +1119,7 @@ function Footer() {
 // ─────────────────────────────────────────
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [language, setLanguage] = useState<Language>("es");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -876,9 +1127,20 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const savedLanguage = window.localStorage.getItem("historiar-language");
+    setLanguage(savedLanguage === "en" || savedLanguage === "es" ? savedLanguage : browserLanguage());
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    window.localStorage.setItem("historiar-language", language);
+    translatePage(language);
+  }, [language]);
+
   return (
     <>
-      <Navbar scrolled={scrolled} />
+      <Navbar scrolled={scrolled} language={language} onLanguageChange={setLanguage} />
       <main>
         <HeroSection />
         <ValueSection />

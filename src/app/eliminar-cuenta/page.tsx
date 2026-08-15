@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
+import LanguageSelector from "../components/LanguageSelector";
 
 // ─────────────────────────────────────────
 // Google Identity Services type declarations
@@ -261,7 +262,8 @@ export default function DeleteAccountPage() {
               Histori<span style={{ color: "#F97316" }}>AR</span>
             </span>
           </Link>
-          <div>
+          <div className="flex items-center" style={{ gap: 12 }}>
+            <LanguageSelector />
             <Link
               href="/"
               className="btn-primary"

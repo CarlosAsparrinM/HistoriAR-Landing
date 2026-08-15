@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import LanguageSelector from "../components/LanguageSelector";
 
 const SECTIONS = [
   { id: "introduccion", label: "1. Introducción" },
@@ -84,8 +85,9 @@ export default function PrivacyPolicy() {
             </span>
           </Link>
 
-          {/* CTA */}
-          <div>
+          {/* Actions */}
+          <div className="flex items-center" style={{ gap: 12 }}>
+            <LanguageSelector />
             <Link
               href="/"
               className="btn-primary"

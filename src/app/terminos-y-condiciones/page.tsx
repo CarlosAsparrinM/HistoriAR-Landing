@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import LanguageSelector from "../components/LanguageSelector";
 
 const SECTIONS = [
   { id: "aceptacion", label: "1. Aceptación de los Términos" },
@@ -88,8 +89,9 @@ export default function TermsAndConditions() {
             </span>
           </Link>
 
-          {/* CTA */}
-          <div>
+          {/* Actions */}
+          <div className="flex items-center" style={{ gap: 12 }}>
+            <LanguageSelector />
             <Link
               href="/"
               className="btn-primary"

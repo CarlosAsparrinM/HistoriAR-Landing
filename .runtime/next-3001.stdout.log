@@ -1,0 +1,76 @@
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://127.0.0.1:3001
+- Network:       http://127.0.0.1:3001
+- Environments: .env.local
+✓ Ready in 2.5s
+
+ GET / 200 in 3.7s (next.js: 2.9s, application-code: 707ms)
+ GET / 200 in 2.4s (next.js: 175ms, application-code: 2.2s)
+✓ Compiled in 1978ms
+ GET / 200 in 590ms (next.js: 392ms, application-code: 197ms)
+✓ Compiled in 2.5s
+ GET / 200 in 404ms (next.js: 271ms, application-code: 133ms)
+✓ Compiled in 13.5s
+✓ Compiled in 4.6s
+ GET / 200 in 1102ms (next.js: 604ms, application-code: 498ms)
+ GET / 200 in 318ms (next.js: 18ms, application-code: 300ms)
+ GET / 200 in 256ms (next.js: 15ms, application-code: 240ms)
+✓ Compiled in 5.2s
+ GET / 200 in 2.1s (next.js: 1275ms, application-code: 810ms)
+ GET / 200 in 376ms (next.js: 56ms, application-code: 320ms)
+ GET / 200 in 496ms (next.js: 35ms, application-code: 460ms)
+✓ Compiled in 2.1s
+ GET / 200 in 969ms (next.js: 548ms, application-code: 421ms)
+ GET / 200 in 221ms (next.js: 33ms, application-code: 187ms)
+ GET / 200 in 8.2s (next.js: 511ms, application-code: 7.7s)
+✓ Compiled in 2.1s
+ GET / 200 in 441ms (next.js: 332ms, application-code: 109ms)
+ GET / 200 in 1696ms (next.js: 103ms, application-code: 1593ms)
+ GET /politica-de-privacidad 200 in 797ms (next.js: 517ms, application-code: 280ms)
+ GET / 200 in 91ms (next.js: 16ms, application-code: 75ms)
+ GET /terminos-y-condiciones 200 in 289ms (next.js: 195ms, application-code: 94ms)
+ GET / 200 in 73ms (next.js: 12ms, application-code: 61ms)
+ GET /politica-de-privacidad 200 in 92ms (next.js: 12ms, application-code: 80ms)
+ GET / 200 in 86ms (next.js: 15ms, application-code: 71ms)
+ GET /terminos-y-condiciones 200 in 125ms (next.js: 17ms, application-code: 109ms)
+ GET / 200 in 84ms (next.js: 15ms, application-code: 68ms)
+ GET /eliminar-cuenta 200 in 259ms (next.js: 169ms, application-code: 90ms)
+ GET / 200 in 96ms (next.js: 14ms, application-code: 82ms)
+ GET /politica-de-privacidad 200 in 102ms (next.js: 14ms, application-code: 88ms)
+ GET / 200 in 118ms (next.js: 24ms, application-code: 94ms)
+ GET / 200 in 938ms (next.js: 590ms, application-code: 348ms)
+✓ Compiled in 12.4s
+ GET / 200 in 1664ms (next.js: 48ms, application-code: 1616ms)
+ GET / 200 in 1284ms (next.js: 634ms, application-code: 651ms)
+ GET / 200 in 451ms (next.js: 33ms, application-code: 418ms)
+✓ Compiled in 2s
+ GET / 200 in 393ms (next.js: 158ms, application-code: 236ms)
+ GET / 200 in 99ms (next.js: 13ms, application-code: 85ms)
+ GET /politica-de-privacidad 200 in 624ms (next.js: 459ms, application-code: 164ms)
+ GET /eliminar-cuenta 200 in 657ms (next.js: 449ms, application-code: 208ms)
+ GET /eliminar-cuenta 200 in 578ms (next.js: 12ms, application-code: 566ms)
+ GET / 200 in 88ms (next.js: 11ms, application-code: 77ms)
+ GET /politica-de-privacidad 200 in 115ms (next.js: 17ms, application-code: 99ms)
+ GET /politica-de-privacidad 200 in 442ms (next.js: 14ms, application-code: 428ms)
+✓ Compiled in 446ms
+ GET /politica-de-privacidad 200 in 699ms (next.js: 319ms, application-code: 380ms)
+ GET /politica-de-privacidad 200 in 492ms (next.js: 26ms, application-code: 466ms)
+ GET /politica-de-privacidad 200 in 280ms (next.js: 24ms, application-code: 256ms)
+ GET /politica-de-privacidad 200 in 666ms (next.js: 20ms, application-code: 647ms)
+✓ Compiled in 206ms
+ GET /politica-de-privacidad 200 in 810ms (next.js: 443ms, application-code: 366ms)
+ GET /politica-de-privacidad 200 in 819ms (next.js: 269ms, application-code: 550ms)
+ GET /politica-de-privacidad 200 in 478ms (next.js: 15ms, application-code: 463ms)
+ GET /politica-de-privacidad 200 in 338ms (next.js: 15ms, application-code: 323ms)
+ GET /politica-de-privacidad 200 in 339ms (next.js: 122ms, application-code: 216ms)
+ GET /politica-de-privacidad 200 in 138ms (next.js: 18ms, application-code: 119ms)
+ GET /terminos-y-condiciones 200 in 788ms (next.js: 160ms, application-code: 628ms)
+ GET /eliminar-cuenta 200 in 502ms (next.js: 369ms, application-code: 133ms)
+ GET / 200 in 148ms (next.js: 64ms, application-code: 84ms)
+✓ Compiled in 3s
+ GET / 200 in 655ms (next.js: 447ms, application-code: 208ms)
+ GET / 200 in 108ms (next.js: 14ms, application-code: 94ms)
+ GET / 200 in 184ms (next.js: 16ms, application-code: 168ms)
+ GET / 200 in 95ms (next.js: 15ms, application-code: 80ms)
+ GET / 200 in 713ms (next.js: 16ms, application-code: 696ms)
+ GET / 200 in 520ms (next.js: 69ms, application-code: 451ms)
