@@ -19,8 +19,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://histori-ar-landing.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://historiar.asparrin.me"),
+  metadataBase: new URL(siteUrl),
   title: "HistoriAR — Explora el Patrimonio Cultural del Perú en Realidad Aumentada",
   description:
     "La primera app Android que hace cobrar vida a los monumentos históricos del Perú mediante Realidad Aumentada. Descarga la APK y empieza a explorar.",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     title: "HistoriAR — Realidad Aumentada + Patrimonio Cultural Peruano",
     description:
       "Apunta tu cámara y descubre la historia del Perú en 3D. Tours guiados, quizzes y mapa interactivo.",
-    url: "https://historiar.asparrin.me",
+    url: siteUrl,
     siteName: "HistoriAR",
     type: "website",
     locale: "es_PE",
